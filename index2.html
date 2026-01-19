@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية الاتقان لتعليم القرآن الكريم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Global Styles */
+        :root {
+            --primary-blue: #2c5aa0;
+            --dark-blue: #1a3a73;
+            --light-blue: #4a7bc8;
+            --accent-blue: #3a8bb8;
+            --teal-blue: #2c7873;
+            --green: #2e8b57;
+            --brown: #8b7355;
+            --red: #c94c4c;
+            --dark-brown: #5d4a3a;
+            --neutral-blue: #e8f0fe;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+            --shadow-xl: 0 25px 60px rgba(0, 0, 0, 0.2);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8fafc;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--dark-gray);
+        }
+        
+        h1 {
+            font-size: 3.8rem;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 2.8rem;
+            position: relative;
+            margin-bottom: 2.5rem;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            right: 0;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to left, var(--primary-blue), var(--accent-blue));
+            border-radius: 3px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2:after {
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        /* Header & Navigation */
+        .main-header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            padding: 1.2rem 5%;
+            background-color: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            filter: drop-shadow(0 2px 4px rgba(44, 90, 160, 0.3));
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--dark-blue);
+        }
+        
+        .logo-text span {
+            color: var(--accent-blue);
+        }
+        
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            box-shadow: 0 6px 20px rgba(44, 90, 160, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(44, 90, 160, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 12rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0C26.9 0 0 26.9 0 60s26.9 60 60 60 60-26.9 60-60S93.1 0 60 0zm0 20c22.1 0 40 17.9 40 40S82.1 100 60 100 20 82.1 20 60 37.9 20 60 20z' fill='%232c5aa0' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.15) 0%, rgba(58, 139, 184, 0.15) 100%);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(44, 90, 160, 0.2);
+        }
+        
+        .hero-description {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+        
+        .stat-text {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .hero-visual {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .quran-frame {
+            width: 100%;
+            max-width: 500px;
+            height: 550px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .quran-frame:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, var(--primary-blue), var(--accent-blue), transparent 30%);
+            animation: rotate 10s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .quran-image {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            bottom: 15px;
+            left: 15px;
+            background: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80') center/cover no-repeat;
+            border-radius: 10px;
+            z-index: 2;
+        }
+        
+        /* Features Section - Enhanced Cards */
+        .features-section {
+            padding: 6rem 5%;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition-slow);
+            border: 1px solid #436db5;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            opacity: 0;
+            transition: var(--transition-slow);
+            z-index: -1;
+        }
+        
+        .feature-card:hover:before {
+            opacity: 1;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-xl);
+            color: white;
+        }
+        
+        .feature-card:hover h3,
+        .feature-card:hover p {
+            color: white;
+        }
+        
+        .feature-card:after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            opacity: 0;
+            transition: var(--transition-slow);
+            z-index: -1;
+        }
+        
+        .feature-card:hover:after {
+            top: -5px;
+            right: -5px;
+            width: 50px;
+            height: 50px;
+            opacity: 0.3;
+        }
+        
+        .feature-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        
+        .feature-icon-wrapper:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+            transition: var(--transition-slow);
+        }
+        
+        .feature-card:hover .feature-icon-wrapper:before {
+            transform: scale(1.1);
+            opacity: 0.2;
+        }
+        
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(44, 90, 160, 0.3);
+            transition: var(--transition-slow);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-card:hover .feature-icon {
+            background: white;
+            color: var(--primary-blue);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(44, 90, 160, 0.4);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-blue);
+            transition: var(--transition-slow);
+            position: relative;
+        }
+        
+        .feature-card h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 0;
+            height: 3px;
+            background: var(--primary-blue);
+            transition: var(--transition-slow);
+        }
+        
+        .feature-card:hover h3:after {
+            width: 60px;
+            background: white;
+        }
+        
+        /* Stats Gallery Section */
+        .stats-gallery-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-triangle {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            
+        }
+        
+        .stats-triangle.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .triangle-stats {
+            flex: 1;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .triangle-stat {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            border: 1px solid #6b97e2;
+        }
+        
+        .triangle-stat.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .triangle-stat:nth-child(1) { transition-delay: 0.1s; }
+        .triangle-stat:nth-child(2) { transition-delay: 0.2s; }
+        .triangle-stat:nth-child(3) { transition-delay: 0.3s; }
+        .triangle-stat:nth-child(4) { transition-delay: 0.4s; }
+        
+        .triangle-stat:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .triangle-stat:hover:before {
+            opacity: 1;
+        }
+        
+        .triangle-stat:hover {
+            transform: translateY(-10px);
+            color: white;
+        }
+        
+        .triangle-stat:hover .triangle-stat-number,
+        .triangle-stat:hover .triangle-stat-text {
+            color: white;
+        }
+        
+        .triangle-stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .triangle-stat-text {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .triangle-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 400px;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .triangle-image.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .triangle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .triangle-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Goals Section - Enhanced Cards */
+        .goals-section {
+            padding: 6rem 5%;
+            background: white;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .goals-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .goals-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .goal-card {
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-slow);
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .goal-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .goal-card:nth-child(1) {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            transition-delay: 0.1s;
+        }
+        
+        .goal-card:nth-child(2) {
+            background: linear-gradient(135deg, var(--green) 0%, #3cb371 100%);
+            color: white;
+            transition-delay: 0.2s;
+        }
+        
+        .goal-card:nth-child(3) {
+            background: linear-gradient(135deg, var(--brown) 0%, #a88f70 100%);
+            color: white;
+            transition-delay: 0.3s;
+        }
+        
+        .goal-card:nth-child(4) {
+            background: linear-gradient(135deg, var(--red) 0%, #e57373 100%);
+            color: white;
+            transition-delay: 0.4s;
+        }
+        
+        .goal-card:nth-child(5) {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #5dade2 100%);
+            color: white;
+            transition-delay: 0.5s;
+        }
+        
+        .goal-card:nth-child(6) {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #8b7355 100%);
+            color: white;
+            transition-delay: 0.6s;
+        }
+        
+        .goal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            background: white !important;
+            border-color: currentColor;
+        }
+        
+        .goal-card:hover .goal-number,
+        .goal-card:hover .goal-icon,
+        .goal-card:hover h3,
+        .goal-card:hover p {
+            color: inherit !important;
+        }
+        
+        .goal-card:nth-child(1):hover {
+            color: var(--primary-blue);
+        }
+        
+        .goal-card:nth-child(2):hover {
+            color: var(--green);
+        }
+        
+        .goal-card:nth-child(3):hover {
+            color: var(--brown);
+        }
+        
+        .goal-card:nth-child(4):hover {
+            color: var(--red);
+        }
+        
+        .goal-card:nth-child(5):hover {
+            color: var(--accent-blue);
+        }
+        
+        .goal-card:nth-child(6):hover {
+            color: var(--dark-brown);
+        }
+        
+        .goal-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: white;
+            transition: var(--transition-slow);
+        }
+        
+        .goal-card:hover .goal-number {
+            background: currentColor;
+            color: white;
+        }
+        
+        .goal-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            transition: var(--transition-slow);
+        }
+        
+        .goal-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            transition: var(--transition-slow);
+        }
+        
+        .goal-card p {
+            color: rgba(255, 255, 255, 0.9);
+            transition: var(--transition-slow);
+        }
+        
+        /* Where We Work Section */
+        .where-we-work-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .where-we-work-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .world-map-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .world-map-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) sepia(0.3) hue-rotate(180deg) saturate(1.5);
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.3) 0%, rgba(26, 58, 115, 0.5) 100%);
+        }
+        
+        .map-points {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+        }
+        
+        .map-point {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px var(--accent-blue);
+            animation: pulse 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        .map-point:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(58, 139, 184, 0.3);
+            animation: pulse-ring 2s infinite;
+        }
+        
+        .map-point:nth-child(1) {
+            top: 38%; /* فلسطين/غزة */
+            right: 52%;
+            animation-delay: 0s;
+        }
+        
+        .map-point:nth-child(2) {
+            top: 37%; /* السعودية */
+            right: 55%;
+            animation-delay: 0.5s;
+        }
+        
+        .map-point:nth-child(3) {
+            top: 36%; /* الأردن */
+            right: 53%;
+            animation-delay: 1s;
+        }
+        
+        .map-point:nth-child(4) {
+            top: 34%; /* مصر */
+            right: 51%;
+            animation-delay: 1.5s;
+        }
+        
+        .map-point:nth-child(5) {
+            top: 36%; /* الإمارات */
+            right: 58%;
+            animation-delay: 2s;
+        }
+        
+        .map-point:nth-child(6) {
+            top: 32%; /* الولايات المتحدة */
+            right: 23%;
+            animation-delay: 2.5s;
+        }
+        
+        .map-point:nth-child(7) {
+            top: 24%; /* بريطانيا */
+            right: 48%;
+            animation-delay: 3s;
+        }
+        
+        .map-point:nth-child(8) {
+            top: 45%; /* ماليزيا */
+            right: 70%;
+            animation-delay: 3.5s;
+        }
+        
+        .map-point:nth-child(9) {
+            top: 33%; /* تركيا */
+            right: 56%;
+            animation-delay: 4s;
+        }
+        
+        .map-point:nth-child(10) {
+            top: 22%; /* كندا */
+            right: 25%;
+            animation-delay: 4.5s;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            70% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                width: 20px;
+                height: 20px;
+                opacity: 0.7;
+            }
+            100% {
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+            }
+        }
+        
+        .map-point:hover:after {
+            content: attr(data-country);
+            position: absolute;
+            top: -45px;
+            right: 50%;
+            transform: translateX(50%);
+            background: white;
+            color: var(--dark-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: var(--shadow-sm);
+            z-index: 10;
+            animation: none;
+            width: auto;
+            height: auto;
+        }
+        
+        .map-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .map-stat {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .map-stat:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .map-stat h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* New Gallery Section */
+        .new-gallery-section {
+            padding: 6rem 5%;
+            background: white;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .new-gallery-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gallery-container-new {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-main {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-image-wrapper {
+            flex: 2;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 500px;
+            cursor: pointer;
+        }
+        
+        .gallery-main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-image-wrapper:hover .gallery-main-img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-curve {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .gallery-curve:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            border-radius: 40%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .gallery-info {
+            flex: 1;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--neutral-blue) 0%, #f0f7ff 100%);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .gallery-info h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .gallery-nav-new {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-nav-btn {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--neutral-blue);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .gallery-nav-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: lightboxAppear 0.5s ease forwards;
+        }
+        
+        @keyframes lightboxAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .lightbox-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -60px;
+            left: 0;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 2001;
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .cta-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .cta-section:after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 4rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section h2:after {
+            background: white;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .cta-primary {
+            background: white;
+            color: var(--primary-blue);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-primary:hover {
+            background: var(--neutral-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        /* Floating Elements Animation */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            top: 30%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 5rem 5% 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .main-footer.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-blue);
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo span {
+            color: var(--accent-blue);
+        }
+        
+        .footer-description {
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-blue);
+            padding-right: 10px;
+        }
+        
+        .contact-info p {
+            color: #ccc;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            color: var(--accent-blue);
+        }
+        
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: white; /* تغيير اللون إلى الأبيض */
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3.2rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 9rem;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .main-nav.active {
+                right: 0;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+            }
+            
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .stats-triangle {
+                flex-direction: column;
+                gap: 3rem;
+                
+            }
+            
+            .triangle-image {
+                width: 100%;
+            }
+            
+            .goals-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-main {
+                flex-direction: column;
+            }
+            
+            .gallery-image-wrapper {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .quran-frame {
+                height: 400px;
+            }
+            
+            .feature-card, .goal-card {
+                padding: 2.5rem 2rem;
+            }
+            
+            .triangle-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-image-wrapper {
+                height: 400px;
+            }
+            
+            .world-map-container {
+                height: 400px;
+            }
+            
+            .cta-content {
+                padding: 3rem 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .goals-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 8rem 5% 4rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .hero-stats {
+                gap: 1.5rem;
+                justify-content: space-around;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+            }
+            
+            .feature-icon-wrapper {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .feature-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.2rem;
+            }
+            
+            .gallery-nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="logo-container">
+            <img width="75" src="logo.png" alt="">
+        </div>
+        
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <nav class="main-nav" id="mainNav">
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#stats">الإحصائيات</a></li>
+                <li><a href="#goals">أهدافنا</a></li>
+                <li><a href="#where-we-work">خريطة العالم</a></li>
+                <li><a href="#gallery">معرض الصور</a></li>
+                <li><a href="#contact">ابدأ رحلتك</a></li>
+            </ul>
+            
+            <div class="auth-buttons">
+                <button class="btn btn-secondary" id="loginBtn">تسجيل الدخول</button>
+                <button class="btn btn-primary" id="registerBtn">انضم إلينا</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-background"></div>
+        
+        <div class="hero-content">
+            <div class="hero-highlight">
+                <i class="fas fa-star" style="margin-left: 8px;"></i>
+                من غزة لكل العالم
+            </div>
+            
+            <h1>أكاديمية الاتقان لتعليم القرآن الكريم</h1>
+            <p class="hero-description">
+                أكاديمية متخصصة في تعليم القرآن الكريم حفظاً وتجويداً وتفسيراً، نقدم تجربة تعليمية فريدة تجمع بين الأصالة والحداثة، مع فريق من المعلمين المؤهلين وبيئة تعليمية محفزة.
+            </p>
+            
+            <div class="cta-buttons">
+                <button class="btn btn-primary" id="heroRegisterBtn">ابدأ رحلتك الآن</button>
+                <button class="btn btn-secondary" id="learnMoreBtn">تعرف على منصتنا</button>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="teachersCount">0</div>
+                    <div class="stat-text">معلم مؤهل</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="studentsCount">0</div>
+                    <div class="stat-text">طالب منتسب</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="supportCount">0</div>
+                    <div class="stat-text">دعم على مدار الساعة</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="quran-frame">
+                <div class="quran-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-title">
+            <h2>مميزات منصتنا</h2>
+            <p>نقدم تجربة تعليمية قرآنية متكاملة تجمع بين التقاليد الأصيلة والتقنيات الحديثة</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <h3>معلمون مؤهلون</h3>
+                <p>فريق من المعلمين المؤهلين والمعتمدين من كبار المشايخ، كلٌ في تخصصه الدقيق في علوم القرآن.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                </div>
+                <h3>فصول افتراضية</h3>
+                <p>فصول دراسية تفاعلية عبر الإنترنت مع أدوات تعليمية متطورة تناسب جميع الأعمار والمستويات.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+                <h3>متابعة التقدم</h3>
+                <p>نظام متكامل لمتابعة تقدم الطالب مع تقارير دورية مفصلة وخطط دراسية مخصصة.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                </div>
+                <h3>شهادات معتمدة</h3>
+                <p>منح شهادات معتمدة في حفظ القرآن وتجويده مع إجازات في القراءات القرآنية.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+                <h3>مرونة الوقت</h3>
+                <p>جدول مرن يمكن تعديله حسب ظروف الطالب مع إمكانية تحديد مواعيد الدراسة المناسبة.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                </div>
+                <h3>دعم فني متكامل</h3>
+                <p>دعم فني متواصل على مدار الساعة لمساعدة الطلاب في استخدام المنصة وحل المشكلات التقنية.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Gallery Section -->
+    <section class="stats-gallery-section" id="stats">
+        <div class="section-title">
+            <h2>إحصائيات وأرقام</h2>
+            <p>نفتخر بما حققناه من إنجازات في رحلة تعليم القرآن الكريم</p>
+        </div>
+        
+        <div class="stats-triangle">
+            <div class="triangle-stats">
+                <div class="triangle-stat">
+                    <div class="triangle-stat-number" id="yearsCount">0</div>
+                    <div class="triangle-stat-text">سنوات من الخبرة</div>
+                </div>
+                
+                <div class="triangle-stat">
+                    <div class="triangle-stat-number" id="graduatesCount">0</div>
+                    <div class="triangle-stat-text">خريج متقن للقرآن</div>
+                </div>
+                
+                <div class="triangle-stat">
+                    <div class="triangle-stat-number" id="sessionsCount">0</div>
+                    <div class="triangle-stat-text">جلسة تعليمية أسبوعياً</div>
+                </div>
+                
+                <div class="triangle-stat">
+                    <div class="triangle-stat-number" id="countriesCount">0</div>
+                    <div class="triangle-stat-text">دولة حول العالم</div>
+                </div>
+            </div>
+            
+            <div class="triangle-image">
+                <img src="4.png" alt="طلاب أكاديمية الاتقان">
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="goals-section" id="goals">
+        <div class="section-title">
+            <h2>أهدافنا</h2>
+            <p>نسعى لتحقيق أهداف سامية تنطلق من رسالتنا في تعليم القرآن الكريم</p>
+        </div>
+        
+        <div class="goals-container">
+            <div class="goal-card">
+                <div class="goal-number">١</div>
+                <div class="goal-icon">
+                    <i class="fas fa-quran"></i>
+                </div>
+                <h3>إتقان تلاوة القرآن</h3>
+                <p>تمكين الطلاب من تلاوة القرآن الكريم بتجويد صحيح ومراعاة أحكام التلاوة، مع التركيز على النطق السليم للحروف والكلمات.</p>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-number">٢</div>
+                <div class="goal-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>تعليم علوم القرآن</h3>
+                <p>تقديم العلوم الشرعية المتعلقة بالقرآن الكريم مثل التفسير والأحكام التجويدية واللغة العربية وعلوم القرآن.</p>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-number">٣</div>
+                <div class="goal-icon">
+                    <i class="fas fa-hands-praying"></i>
+                </div>
+                <h3>تطبيق عملي للقرآن</h3>
+                <p>ترسيخ القيم القرآنية في حياة الطلاب وتطبيق تعاليم القرآن في السلوك اليومي والعلاقات الاجتماعية.</p>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-number">٤</div>
+                <div class="goal-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>إعداد معلمين متميزين</h3>
+                <p>تدريب وتأهيل معلمين مؤهلين في تعليم القرآن الكريم باستخدام أحدث الأساليب التعليمية والتقنيات الحديثة.</p>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-number">٥</div>
+                <div class="goal-icon">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <h3>نشر القرآن عالمياً</h3>
+                <p>توسيع نطاق التعليم القرآني ليشمل الناطقين بغير العربية باستخدام مناهج متخصصة وطرق تدريس مبتكرة.</p>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-number">٦</div>
+                <div class="goal-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>التطوير المستمر</h3>
+                <p>مواكبة أحدث التطورات في مجال التعليم القرآني وتطوير المناهج والوسائل التعليمية باستمرار.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where We Work Section -->
+    <section class="where-we-work-section" id="where-we-work">
+        <div class="section-title">
+            <h2>خريطة العالم</h2>
+            <p>نشر القرآن الكريم من غزة إلى كل أنحاء العالم</p>
+        </div>
+        
+        <div class="world-map-container">
+            <img src="map.jpg" 
+                 alt="خريطة العالم" class="world-map-img">
+            <!-- <div class="map-overlay"></div>
+            <div class="map-points">
+                <div class="map-point" data-country="فلسطين - غزة"></div>
+                <div class="map-point" data-country="المملكة العربية السعودية"></div>
+                <div class="map-point" data-country="الأردن"></div>
+                <div class="map-point" data-country="مصر"></div>
+                <div class="map-point" data-country="الإمارات العربية المتحدة"></div>
+                <div class="map-point" data-country="الولايات المتحدة الأمريكية"></div>
+                <div class="map-point" data-country="المملكة المتحدة"></div>
+                <div class="map-point" data-country="ماليزيا"></div>
+                <div class="map-point" data-country="تركيا"></div>
+                <div class="map-point" data-country="كندا"></div>
+            </div> -->
+        </div>
+        
+        <div class="map-stats">
+            <div class="map-stat">
+                <h4>+15 دولة</h4>
+                <p>نعمل في أكثر من 15 دولة حول العالم</p>
+            </div>
+            
+            <div class="map-stat">
+                <h4>3 قارات</h4>
+                <p>نغطي قارات آسيا وأفريقيا وأوروبا</p>
+            </div>
+            
+            <div class="map-stat">
+                <h4>24/7</h4>
+                <p>خدماتنا متاحة على مدار الساعة</p>
+            </div>
+            
+            <div class="map-stat">
+                <h4>5 لغات</h4>
+                <p>ندعم تعليم القرآن بـ 5 لغات مختلفة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Gallery Section -->
+    <section class="new-gallery-section" id="gallery">
+        <div class="section-title">
+            <h2>معرض الصور</h2>
+            <p>تصميم متميز وواجهات سهلة الاستخدام لكل من الطلاب والمحفظين</p>
+        </div>
+        
+        <div class="gallery-container-new">
+            <div class="gallery-main">
+                <div class="gallery-image-wrapper" id="galleryImageWrapper">
+                    <div class="gallery-curve"></div>
+                    <img src="0.png" alt="منصة أكاديمية الاتقان" class="gallery-main-img" id="mainGalleryImage">
+                </div>
+                
+                <div class="gallery-info">
+                    <h3 id="galleryTitle">منصة تعليمية متكاملة</h3>
+                    <p id="galleryDescription">تصميم حديث وواجهات سهلة الاستخدام تمكن الطلاب والمحفظين من تحقيق أفضل النتائج في تعلم وتعليم القرآن الكريم.</p>
+                    <p>منصتنا توفر جميع الأدوات اللازمة لمتابعة التقدم الدراسي، إدارة الجلسات، والتواصل الفعال بين الطلاب والمعلمين.</p>
+                </div>
+            </div>
+            
+            <div class="gallery-nav-new">
+                <button class="gallery-nav-btn" id="prevGalleryBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="gallery-nav-btn" id="nextGalleryBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-close" id="lightboxClose">×</div>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img" id="lightboxImg">
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
+        <div class="cta-content">
+            <h2>ابدأ رحلتك القرآنية معنا اليوم</h2>
+            <p>انضم إلى آلاف الطلاب الذين بدأوا رحلتهم في حفظ وتعلم القرآن الكريم مع أكاديمية الاتقان</p>
+            
+            <div class="cta-buttons">
+                <button class="cta-btn cta-primary" id="finalRegisterBtn">سجل الآن مجاناً</button>
+                <button class="cta-btn cta-secondary">احجز جلسة تجريبية</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">أكاديمية <span>الاتقان</span></div>
+                <p class="footer-description">
+                    مؤسسة تعليمية رائدة في تعليم القرآن الكريم حفظاً وتجويداً وفهماً، تهدف إلى إعداد جيل متمكن من كتاب الله، قادر على تعليمه ونشر علومه.
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>روابط سريعة</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#stats">الإحصائيات</a></li>
+                    <li><a href="#goals">أهدافنا</a></li>
+                    <li><a href="#where-we-work">خريطة العالم</a></li>
+                    <li><a href="#gallery">معرض الصور</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>اتصل بنا</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +966 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@al-itqan.edu</p>
+                    <p><i class="fas fa-map-marker-alt"></i> غزة - فلسطين</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p style="color: #fff;">© 1447 جميع الحقوق محفوظة | أكاديمية الاتقان لتعليم القرآن الكريم</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile menu when clicking a link
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Animated counters for hero section
+            function animateCounter(element, target, suffix = '', duration = 2000) {
+                let current = 0;
+                const increment = target / (duration / 16);
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }, 16);
+            }
+            
+            // Initialize counters when they become visible
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(document.getElementById('teachersCount'), 100, '+', 1500);
+                        animateCounter(document.getElementById('studentsCount'), 5000, '+', 2000);
+                        animateCounter(document.getElementById('supportCount'), 24, '/7', 1000);
+                        heroObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            heroObserver.observe(document.querySelector('.hero-section'));
+            
+            // Animated counters for stats section
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(document.getElementById('yearsCount'), 8, '+', 1500);
+                        animateCounter(document.getElementById('graduatesCount'), 1200, '+', 1800);
+                        animateCounter(document.getElementById('sessionsCount'), 500, '+', 1600);
+                        animateCounter(document.getElementById('countriesCount'), 15, '+', 1200);
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statsObserver.observe(document.querySelector('.stats-gallery-section'));
+            
+            // Gallery System
+            const galleryImages = [
+                { 
+                    src: '0.png', 
+                    title: 'لوحة تحكم الطالب', 
+                    desc: 'واجهة سهلة الاستخدام لمتابعة التقدم الدراسي',
+                    fallback: 'https://images.unsplash.com/photo-1589256469067-ea99122bbdc4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+                },
+                { 
+                    src: '1.png', 
+                    title: 'لوحة تحكم المحفظ', 
+                    desc: 'أدوات متقدمة لإدارة الطلاب وتقييم أدائهم',
+                    fallback: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+                },
+                { 
+                    src: '2.png', 
+                    title: 'الفصول الافتراضية', 
+                    desc: 'بيئة تعليمية تفاعلية مع أدوات متطورة',
+                    fallback: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+                },
+                { 
+                    src: '3.png', 
+                    title: 'التقارير والإحصائيات', 
+                    desc: 'متابعة دقيقة لتقدم الطلاب وإنجازاتهم',
+                    fallback: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80'
+                }
+            ];
+            
+            const mainGalleryImage = document.getElementById('mainGalleryImage');
+            const galleryImageWrapper = document.getElementById('galleryImageWrapper');
+            const galleryTitle = document.getElementById('galleryTitle');
+            const galleryDescription = document.getElementById('galleryDescription');
+            const prevGalleryBtn = document.getElementById('prevGalleryBtn');
+            const nextGalleryBtn = document.getElementById('nextGalleryBtn');
+            let currentGalleryIndex = 0;
+            
+            // Lightbox elements
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxClose = document.getElementById('lightboxClose');
+            
+            // Update gallery function
+            function updateGallery(index) {
+                currentGalleryIndex = index;
+                const currentImage = galleryImages[currentGalleryIndex];
+                
+                // Update main image with fallback
+                const img = new Image();
+                img.onload = function() {
+                    mainGalleryImage.src = currentImage.src;
+                };
+                img.onerror = function() {
+                    mainGalleryImage.src = currentImage.fallback;
+                };
+                img.src = currentImage.src;
+                
+                // Update info
+                galleryTitle.textContent = currentImage.title;
+                galleryDescription.textContent = currentImage.desc;
+            }
+            
+            // Navigation buttons
+            prevGalleryBtn.addEventListener('click', () => {
+                currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+                updateGallery(currentGalleryIndex);
+            });
+            
+            nextGalleryBtn.addEventListener('click', () => {
+                currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+                updateGallery(currentGalleryIndex);
+            });
+            
+            // Lightbox functionality
+            galleryImageWrapper.addEventListener('click', function() {
+                const currentImage = galleryImages[currentGalleryIndex];
+                lightboxImg.src = mainGalleryImage.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            lightboxClose.addEventListener('click', function() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Initialize gallery
+            updateGallery(0);
+            
+            // Scroll animations for sections
+            const sections = document.querySelectorAll('section, .main-footer');
+            
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add visible class to section
+                        entry.target.classList.add('visible');
+                        
+                        // For features section, add visible class to each card
+                        if (entry.target.id === 'features') {
+                            const cards = entry.target.querySelectorAll('.feature-card');
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.add('visible');
+                                }, index * 100);
+                            });
+                        }
+                        
+                        // For stats section, add visible class to triangle stats
+                        if (entry.target.id === 'stats') {
+                            const triangle = entry.target.querySelector('.stats-triangle');
+                            const triangleImage = entry.target.querySelector('.triangle-image');
+                            const triangleStats = entry.target.querySelectorAll('.triangle-stat');
+                            
+                            setTimeout(() => {
+                                triangle.classList.add('visible');
+                            }, 100);
+                            
+                            setTimeout(() => {
+                                triangleImage.classList.add('visible');
+                            }, 300);
+                            
+                            triangleStats.forEach((stat, index) => {
+                                setTimeout(() => {
+                                    stat.classList.add('visible');
+                                }, 500 + (index * 100));
+                            });
+                        }
+                        
+                        // For goals section, add visible class to each card
+                        if (entry.target.id === 'goals') {
+                            const cards = entry.target.querySelectorAll('.goal-card');
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.add('visible');
+                                }, index * 100);
+                            });
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Observe all sections
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.main-header');
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                    header.style.padding = '0.8rem 5%';
+                } else {
+                    header.style.boxShadow = 'var(--shadow-sm)';
+                    header.style.padding = '1.2rem 5%';
+                }
+            });
+            
+            // Registration buttons functionality
+            const registerButtons = document.querySelectorAll('#registerBtn, #heroRegisterBtn, #finalRegisterBtn');
+            registerButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('سيتم توجيهك إلى صفحة التسجيل في النسخة الكاملة من المنصة');
+                });
+            });
+            
+            // Login button functionality
+            document.getElementById('loginBtn').addEventListener('click', function() {
+                alert('سيتم توجيهك إلى صفحة تسجيل الدخول في النسخة الكاملة من المنصة');
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
